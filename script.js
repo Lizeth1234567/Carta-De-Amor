@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Para rellenar la carta modal con el mismo contenido
-  const tituloCarta = localStorage.getItem("tituloCarta") || "Feliz día del amor y la amistad";
+  const tituloCarta = localStorage.getItem("tituloCarta") || "Sebas";
   const mensajeCarta = localStorage.getItem("mensajeCarta") || "Eres una de las coincidencias más lindas que me ha dado la vida.<br>Espero seguir a tu lado durante mucho tiempo<br>y compartir juntos por primera vez todo lo que falta. <br>La vida es muy corta para no disfrutarla a tu lado.<br>Te quiero demasiado 💕";
   const firmaCarta = localStorage.getItem("firmaCarta") || "Con todo el cariño,<br><strong>Para una persona especial</strong>";
 
