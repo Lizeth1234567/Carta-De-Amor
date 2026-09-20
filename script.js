@@ -7,6 +7,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const cartaModalBg = document.getElementById('cartaModalBg');
   const cartaModal = document.getElementById('cartaModal');
 
+  // Usar Google Sans sin modificar tamaños, colores ni animaciones.
+  const estiloFuente = document.createElement('style');
+  estiloFuente.textContent = `
+    body, body *, button {
+      font-family: "Google Sans", sans-serif !important;
+    }
+  `;
+  document.head.appendChild(estiloFuente);
+
   // Sustituye únicamente los emojis de luna y flores por la imagen centrada.
   document.querySelectorAll('.decoracion--luna, .decoracion--flores').forEach((elemento, indice, elementos) => {
     if (indice === 0 || elementos[indice - 1].parentElement !== elemento.parentElement) {
