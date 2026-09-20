@@ -7,6 +7,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const cartaModalBg = document.getElementById('cartaModalBg');
   const cartaModal = document.getElementById('cartaModal');
 
+  // Sustituye únicamente los emojis de luna y flores por la imagen centrada.
+  document.querySelectorAll('.decoracion--luna, .decoracion--flores').forEach((elemento, indice, elementos) => {
+    if (indice === 0 || elementos[indice - 1].parentElement !== elemento.parentElement) {
+      const contenedor = elemento.parentElement;
+      contenedor.querySelectorAll('.decoracion--luna, .decoracion--flores').forEach((decoracion) => decoracion.remove());
+      const imagen = document.createElement('img');
+      imagen.src = 'Imagen.jpg';
+      imagen.alt = 'Imagen especial';
+      imagen.className = 'imagen-decorativa';
+      imagen.style.display = 'block';
+      imagen.style.width = 'min(180px, 100%)';
+      imagen.style.height = 'auto';
+      imagen.style.margin = '0 auto';
+      contenedor.appendChild(imagen);
+    }
+  });
+
   // Para rellenar la carta modal con el mismo contenido
   const tituloCarta = localStorage.getItem("tituloCarta") || "Feliz día del amor y la amistad";
   const mensajeCarta = localStorage.getItem("mensajeCarta") || "Eres una de las coincidencias más lindas que me ha dado la vida.<br>Espero seguir a tu lado durante mucho tiempo<br>y compartir juntos por primera vez todo lo que falta. <br>La vida es muy corta para no disfrutarla a tu lado.<br>Te quiero demasiado 💕";
