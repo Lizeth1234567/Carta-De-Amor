@@ -7,6 +7,31 @@ document.addEventListener("DOMContentLoaded", () => {
   const cartaModalBg = document.getElementById('cartaModalBg');
   const cartaModal = document.getElementById('cartaModal');
 
+  // Reemplaza la luna y las flores por la imagen centrada de la carta.
+  const contenedoresImagen = new Set(
+    document.querySelectorAll('.decoracion--luna, .decoracion--flores')
+  );
+
+  contenedoresImagen.forEach((decoracion) => {
+    const contenedor = decoracion.parentElement;
+
+    contenedor.querySelectorAll('.decoracion--luna, .decoracion--flores')
+      .forEach((elemento) => elemento.remove());
+
+    const imagen = document.createElement('img');
+    imagen.src = 'Imagen.jpg';
+    imagen.alt = 'Imagen especial';
+    imagen.style.display = 'block';
+    imagen.style.width = 'min(180px, 45vw)';
+    imagen.style.height = 'auto';
+    imagen.style.maxHeight = '180px';
+    imagen.style.objectFit = 'contain';
+    imagen.style.margin = '1rem auto 0';
+    imagen.style.borderRadius = '12px';
+
+    contenedor.appendChild(imagen);
+  });
+
   // Para rellenar la carta modal con el mismo contenido
   const tituloCarta = localStorage.getItem("tituloCarta") || "Feliz día del amor y la amistad";
   const mensajeCarta = localStorage.getItem("mensajeCarta") || "Eres una de las coincidencias más lindas que me ha dado la vida.<br>Espero seguir a tu lado durante mucho tiempo<br>y compartir juntos por primera vez todo lo que falta. <br>La vida es muy corta para no disfrutarla a tu lado.<br>Te quiero demasiado 💕";
